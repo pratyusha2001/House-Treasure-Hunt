@@ -1,0 +1,172 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "flexaIntent",
+                    "samples": [
+                        "hell yeah",
+                        "why not",
+                        "obviously",
+                        "surely",
+                        "yah"
+                    ]
+                },
+                {
+                    "name": "flexbIntent",
+                    "samples": [
+                        "nah",
+                        "nay",
+                        "nae",
+                        "definitely not",
+                        "certainly not",
+                        "not now",
+                        "most certainly not",
+                        "ofcourse not",
+                        "hell no"
+                    ]
+                },
+                {
+                    "name": "flexcIntent",
+                    "samples": [
+                        "start",
+                        "begin",
+                        "lets start",
+                        "commence",
+                        "get going"
+                    ]
+                },
+                {
+                    "name": "flexdIntent",
+                    "samples": [
+                        "terminate",
+                        "finish",
+                        "quit"
+                    ]
+                },
+                {
+                    "name": "flexeIntent",
+                    "samples": [
+                        "go right",
+                        "head to right",
+                        "take right",
+                        "right direction",
+                        "take me to the right",
+                        "i will go right",
+                        "take me to the bedroom",
+                        "take me to his bedroom",
+                        "take me to jackie's bedroom",
+                        "jackie's bedroom",
+                        "bedroom"
+                    ]
+                },
+                {
+                    "name": "flexfIntent",
+                    "samples": [
+                        "left",
+                        "go left",
+                        "head to left",
+                        "take left",
+                        "left direction",
+                        "take me to the left",
+                        "i will go left",
+                        "take me to the kitchen",
+                        "take me to his kitchen",
+                        "take me to jackie's kitchen",
+                        "jackie's kitchen",
+                        "kitchen",
+                        "take me to the store room",
+                        "take me to his storeroom",
+                        "take me to jackie's storeroom",
+                        "jackie's storeroom",
+                        "storeroom"
+                    ]
+                },
+                {
+                    "name": "flexgIntent",
+                    "samples": [
+                        "come back",
+                        "come back to starting position",
+                        "come back to the starting position",
+                        "come back to dining hall",
+                        "dining hall",
+                        "head me to dining hall",
+                        "head me back to the dining hall",
+                        "take me back",
+                        "take me back to dining hall"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent"
+                },
+                {
+                    "name": "AMAZON.NextIntent"
+                },
+                {
+                    "name": "AMAZON.NoIntent"
+                },
+                {
+                    "name": "AMAZON.PauseIntent"
+                },
+                {
+                    "name": "AMAZON.PreviousIntent"
+                },
+                {
+                    "name": "AMAZON.RepeatIntent"
+                },
+                {
+                    "name": "AMAZON.ResumeIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent"
+                },
+                {
+                    "name": "AMAZON.StartOverIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "AMAZON.YesIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent"
+                },
+                {
+                    "name": "AMAZON.PageUpIntent"
+                },
+                {
+                    "name": "AMAZON.PageDownIntent"
+                },
+                {
+                    "name": "AMAZON.MoreIntent"
+                },
+                {
+                    "name": "AMAZON.FallbackIntent"
+                }
+            ],
+            "invocationName": "story"
+        }
+    }
+}

@@ -1,0 +1,79 @@
+@start
+	*say
+	Are you ready to take the House Treasure Hunt Challenge?
+	*then
+	-> entry
+@entry	
+	*say
+	Would you like to start playing House Treasure Hunt?
+	*reprompt
+	Say yes to take the challenge or no to quit.
+	*then
+	hear yes, yeah, yup, hell yeah, why not, obviously, absolutely,all right, of course, sure,surely, yah, yep, okay,begin{
+		clear all
+		->node3
+	} 
+	hear no, nope,nah, nay, not at all, never, nae,absolutely not, definitely not,certainly not, not now, most certainly not, ofcourse not,no way,hell no{
+		clear all
+		->end
+	}
+@node3
+	*say
+	Welcome to House Treasure Hunt Challenge!Jackie lives in an one-storey house. There had been rumours that he has treasures hidden in his house. Get the treasures before Jackie gets hold of you.Say Start to begin the game! Good luck!
+	*reprompt
+	Say start to start the game or end to quit.
+	*then 
+	hear start,begin,lets start,go ahead, commence,get going{
+	->node4
+	}
+	hear end,stop,terminate,finish,close,quit{
+	->end
+	}
+@node4
+	*say
+	You are currently in Jackie's dining hall.Fortunately, he is sleeping.Take right to go to his bedroom or take left to go to his kitchen.
+	*reprompt
+	Say right to head to Jackie's bedroom or say left to head to Jackie's kitchen.
+	*then
+	hear right,go right,head to right,take right,right direction,take me to the right,I will go right,take me to the bedroom, take me to his bedroom, Take me to Jackie's bedroom, Jackie's bedroom, bedroom{
+		->take right
+		->bedroom
+	}
+	hear left,go left,head to left,take left,left direction,take me to the left,I will go left,take me to the kitchen, take me to his kitchen, Take me to Jackie's kitchen, Jackie's kitchen, kitchen{
+		<->take left
+	}
+@take right
+	*say
+	Heading to Jackie's bedroom.
+	*then
+	->end
+@bedroom
+	*say
+	Jackie is awakened by your footsteps!
+@take left
+	*say
+	Heading to the kitchen.
+	There is nothing suspicious here.Take left to go to the store room else come back to your starting position.
+	*reprompt 
+	Say left to head to store room or say back to come back to starting position.
+	*then
+	hear left,go left,head to left,take left,left direction,take me to the left,I will go left,take me to the store room, take me to his storeroom, Take me to Jackie's storeroom, Jackie's storeroom, storeroom{
+	->go left
+	}
+	hear back,come back,come back to starting position, come back to the starting position,come back to dining hall, dining hall, head me to dining hall, head me back to the dining hall, take me back, take me back to dining hall{
+		>>RETURN
+	}
+@go left
+	*say
+	Heading to the store-room.
+	*then
+	->win
+@win
+	*say
+	Voila! The treasure is here! 
+@end
+	*say
+	Game over!
+	>>END
+
+

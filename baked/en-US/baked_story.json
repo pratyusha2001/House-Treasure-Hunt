@@ -1,0 +1,643 @@
+{
+    "pluginName": "default",
+    "scenes": [
+        {
+            "contents": [
+                {
+                    "narration": "Are you ready to take the House Treasure Hunt Challenge?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "entry",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "start",
+            "customProperties": {
+                "sourceLocation": 0,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Would you like to start playing House Treasure Hunt?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Say yes to take the challenge or no to quit."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes",
+                                    "yeah",
+                                    "yup",
+                                    "hell yeah",
+                                    "why not",
+                                    "obviously",
+                                    "absolutely",
+                                    "all right",
+                                    "of course",
+                                    "sure",
+                                    "surely",
+                                    "yah",
+                                    "yep",
+                                    "okay"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "clear",
+                                        "parameters": {
+                                            "variableName": "all"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "node3",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent",
+                                    "flexaIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no",
+                                    "nope",
+                                    "nah",
+                                    "nay",
+                                    "not at all",
+                                    "never",
+                                    "nae",
+                                    "absolutely not",
+                                    "definitely not",
+                                    "certainly not",
+                                    "not now",
+                                    "most certainly not",
+                                    "ofcourse not",
+                                    "no way",
+                                    "hell no"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "clear",
+                                        "parameters": {
+                                            "variableName": "all"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "end",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent",
+                                    "flexbIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "entry",
+            "customProperties": {
+                "sourceLocation": 88,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Welcome to House Treasure Hunt Challenge!Jackie lives in an one-storey house. There had been rumours that he has treasures hidden in his house. Get the treasures before Jackie gets hold of you.Say Start to begin the game! Good luck!",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Say start to start the game or end to quit."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "start",
+                                    "begin",
+                                    "lets start",
+                                    "go ahead",
+                                    "commence",
+                                    "get going"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "node4",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexcIntent",
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "end",
+                                    "stop",
+                                    "terminate",
+                                    "finish",
+                                    "close",
+                                    "quit"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "end",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.StopIntent",
+                                    "flexdIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "node3",
+            "customProperties": {
+                "sourceLocation": 536,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You are currently in Jackie's dining hall.Fortunately, he is sleeping.Take right to go to his bedroom or take left to go to his kitchen.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Say right to head to Jackie's bedroom or say left to head to Jackie's kitchen."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "right",
+                                    "go right",
+                                    "head to right",
+                                    "take right",
+                                    "right direction",
+                                    "take me to the right",
+                                    "I will go right",
+                                    "take me to the bedroom",
+                                    "take me to his bedroom",
+                                    "Take me to Jackie's bedroom",
+                                    "Jackie's bedroom",
+                                    "bedroom"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "take right",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "bedroom",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent",
+                                    "flexeIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "left",
+                                    "go left",
+                                    "head to left",
+                                    "take left",
+                                    "left direction",
+                                    "take me to the left",
+                                    "I will go left",
+                                    "take me to the kitchen",
+                                    "take me to his kitchen",
+                                    "Take me to Jackie's kitchen",
+                                    "Jackie's kitchen",
+                                    "kitchen"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "save and go",
+                                        "parameters": {
+                                            "target": "take left",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexfIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "node4",
+            "customProperties": {
+                "sourceLocation": 972,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Heading to Jackie's bedroom.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "end",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "take right",
+            "customProperties": {
+                "sourceLocation": 1668,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Jackie is awakened by your footsteps!",
+                    "sceneDirections": [
+                        {
+                            "directionType": "ending",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "bedroom",
+            "customProperties": {
+                "sourceLocation": 1730,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Heading to the kitchen.\n\tThere is nothing suspicious here.Take left to go to the store room else come back to your starting position.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Say left to head to store room or say back to come back to starting position."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "left",
+                                    "go left",
+                                    "head to left",
+                                    "take left",
+                                    "left direction",
+                                    "take me to the left",
+                                    "I will go left",
+                                    "take me to the store room",
+                                    "take me to his storeroom",
+                                    "Take me to Jackie's storeroom",
+                                    "Jackie's storeroom",
+                                    "storeroom"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "go left",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexfIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "back",
+                                    "come back",
+                                    "come back to starting position",
+                                    "come back to the starting position",
+                                    "come back to dining hall",
+                                    "dining hall",
+                                    "head me to dining hall",
+                                    "head me back to the dining hall",
+                                    "take me back",
+                                    "take me back to dining hall"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "return",
+                                        "parameters": {}
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.PreviousIntent",
+                                    "flexgIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "take left",
+            "customProperties": {
+                "sourceLocation": 1784,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Heading to the store-room.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "win",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "go left",
+            "customProperties": {
+                "sourceLocation": 2496,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Voila! The treasure is here!",
+                    "sceneDirections": [
+                        {
+                            "directionType": "ending",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "win",
+            "customProperties": {
+                "sourceLocation": 2553,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Game over!\n\t>>END",
+                    "sceneDirections": [
+                        {
+                            "directionType": "ending",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "end",
+            "customProperties": {
+                "sourceLocation": 2595,
+                "sourceID": "story.abc"
+            }
+        }
+    ],
+    "storyID": "story",
+    "storyTitle": "story",
+    "alexaVoiceModel": {
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "flexaIntent",
+                    "samples": [
+                        "hell yeah",
+                        "why not",
+                        "obviously",
+                        "surely",
+                        "yah"
+                    ]
+                },
+                {
+                    "name": "flexbIntent",
+                    "samples": [
+                        "nah",
+                        "nay",
+                        "nae",
+                        "definitely not",
+                        "certainly not",
+                        "not now",
+                        "most certainly not",
+                        "ofcourse not",
+                        "hell no"
+                    ]
+                },
+                {
+                    "name": "flexcIntent",
+                    "samples": [
+                        "start",
+                        "begin",
+                        "lets start",
+                        "commence",
+                        "get going"
+                    ]
+                },
+                {
+                    "name": "flexdIntent",
+                    "samples": [
+                        "terminate",
+                        "finish",
+                        "quit"
+                    ]
+                },
+                {
+                    "name": "flexeIntent",
+                    "samples": [
+                        "go right",
+                        "head to right",
+                        "take right",
+                        "right direction",
+                        "take me to the right",
+                        "i will go right",
+                        "take me to the bedroom",
+                        "take me to his bedroom",
+                        "take me to jackie's bedroom",
+                        "jackie's bedroom",
+                        "bedroom"
+                    ]
+                },
+                {
+                    "name": "flexfIntent",
+                    "samples": [
+                        "left",
+                        "go left",
+                        "head to left",
+                        "take left",
+                        "left direction",
+                        "take me to the left",
+                        "i will go left",
+                        "take me to the kitchen",
+                        "take me to his kitchen",
+                        "take me to jackie's kitchen",
+                        "jackie's kitchen",
+                        "kitchen",
+                        "take me to the store room",
+                        "take me to his storeroom",
+                        "take me to jackie's storeroom",
+                        "jackie's storeroom",
+                        "storeroom"
+                    ]
+                },
+                {
+                    "name": "flexgIntent",
+                    "samples": [
+                        "come back",
+                        "come back to starting position",
+                        "come back to the starting position",
+                        "come back to dining hall",
+                        "dining hall",
+                        "head me to dining hall",
+                        "head me back to the dining hall",
+                        "take me back",
+                        "take me back to dining hall"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent"
+                },
+                {
+                    "name": "AMAZON.NextIntent"
+                },
+                {
+                    "name": "AMAZON.NoIntent"
+                },
+                {
+                    "name": "AMAZON.PauseIntent"
+                },
+                {
+                    "name": "AMAZON.PreviousIntent"
+                },
+                {
+                    "name": "AMAZON.RepeatIntent"
+                },
+                {
+                    "name": "AMAZON.ResumeIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent"
+                },
+                {
+                    "name": "AMAZON.StartOverIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "AMAZON.YesIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent"
+                },
+                {
+                    "name": "AMAZON.PageUpIntent"
+                },
+                {
+                    "name": "AMAZON.PageDownIntent"
+                },
+                {
+                    "name": "AMAZON.MoreIntent"
+                },
+                {
+                    "name": "AMAZON.FallbackIntent"
+                }
+            ],
+            "invocationName": "story"
+        }
+    }
+}
