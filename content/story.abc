@@ -4,6 +4,7 @@
 	*then
 	-> entry
 @entry	
+
 	*say
 	Would you like to start playing House Treasure Hunt?
 	*reprompt
@@ -11,46 +12,129 @@
 	*then
 	hear yes, yeah, yup, hell yeah, why not, obviously, absolutely,all right, of course, sure,surely, yah, yep, okay,begin{
 		clear all
-		->node3
+		->intro
 	} 
 	hear no, nope,nah, nay, not at all, never, nae,absolutely not, definitely not,certainly not, not now, most certainly not, ofcourse not,no way,hell no{
 		clear all
 		->end
 	}
-@node3
+@intro
+    *show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/house.jpg'
+    title: house pic
 	*say
-	Welcome to House Treasure Hunt Challenge!Jackie lives in an one-storey house. There had been rumours that he has treasures hidden in his house. Get the treasures before Jackie gets hold of you.Say Start to begin the game! Good luck!
+	Welcome to House Treasure Hunt Challenge!Jackie lives in a two-storey house with his pet dog. There had been rumours that he has treasures hidden in his house.Its night-time when you sneeked into Jackie's house. Get the treasures before Jackie gets hold of you.Say start to begin the game! Good luck!
 	*reprompt
 	Say start to start the game or end to quit.
 	*then 
 	hear start,begin,lets start,go ahead, commence,get going{
-	->node4
+	->starting position
 	}
 	hear end,stop,terminate,finish,close,quit{
 	->end
 	}
-@node4
+@starting position
+    *show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/drawing.jpg'
+    title: drawing room pic
 	*say
-	You are currently in Jackie's dining hall.Fortunately, he is sleeping.Take right to go to his bedroom or take left to go to his kitchen.
+	You are currently in Jackie's drawing room.Fortunately, he is sleeping.Take right to go to his bedroom or take left to go to his kitchen.
 	*reprompt
 	Say right to head to Jackie's bedroom or say left to head to Jackie's kitchen.
 	*then
+	set playerHealth as 30
 	hear right,go right,head to right,take right,right direction,take me to the right,I will go right,take me to the bedroom, take me to his bedroom, Take me to Jackie's bedroom, Jackie's bedroom, bedroom{
-		->take right
-		->bedroom
+		set enemy as 'Jackie'
+	    set opponentHealth as 40
+	   	<->take right
 	}
 	hear left,go left,head to left,take left,left direction,take me to the left,I will go left,take me to the kitchen, take me to his kitchen, Take me to Jackie's kitchen, Jackie's kitchen, kitchen{
+	    set enemy as 'the dog'
+	    set opponentHealth as 20
 		<->take left
 	}
 @take right
+    *show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/bedroom.jpg'
+    title: bedroom pic
 	*say
-	Heading to Jackie's bedroom.
+	Heading to Jackie's bedroom.Oops!Jackie is awakened by your footsteps!You have no option other than facing him.
 	*then
-	->end
-@bedroom
-	*say
-	Jackie is awakened by your footsteps!
+	->fight/flee
+@fight/flee
+	Attack!
+	*reprompt
+	Say fight to fight with {enemy} or say stop to end the game.
+	*then
+	hear fight, attack{
+		->fight
+		}
+	hear stop, end, stop game, end game, quit, quit game{
+	    ->end
+	}
+@fight
+{
+    *say
+    You attacked {enemy}!
+    *then
+    <-> fightResult
+    if !attack{
+    decrease playerHealth by 10
+    ->update
+    }
+    if attack{
+    decrease opponentHealth by 10
+    ->update
+    }
+@fightResult
+    *then
+        roll 1d2
+        flag attack
+        if rollResult != 1{
+            unflag attack
+        }
+        >>RETURN
+@update
+    *say
+    Your health is {playerHealth} and health of {enemy} is {opponentHealth}.
+    *then
+        if playerHealth <= 0 {
+        -> dead
+        }
+        if playerHealth > 0 and opponentHealth > 0{
+        ->fight/flee
+        }
+        if dog == 1 and opponentHealth <= 0{
+        -> win
+        }
+        if opponentHealth <= 0{
+        -> winAttack
+        }
+@dead
+    *say
+    You are dead!
+    *then
+    ->help
+@winAttack
+    *say
+     That was a great attack!You defeated {enemy}! Would you like to continue playing or end the game here!
+     *then
+     hear play, continue{
+     ->starting position
+     }
+     hear end,stop,quit, end game, stop game, quit game{
+     clear all
+     ->end
+     }
 @take left
+*show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/kitchen.jpg'
+    title: kitchen pic
+
 	*say
 	Heading to the kitchen.
 	There is nothing suspicious here.Take left to go to the store room else come back to your starting position.
@@ -60,20 +144,62 @@
 	hear left,go left,head to left,take left,left direction,take me to the left,I will go left,take me to the store room, take me to his storeroom, Take me to Jackie's storeroom, Jackie's storeroom, storeroom{
 	->go left
 	}
-	hear back,come back,come back to starting position, come back to the starting position,come back to dining hall, dining hall, head me to dining hall, head me back to the dining hall, take me back, take me back to dining hall{
+	hear back,come back,come back to starting position, come back to the starting position,come back to drawing hall,drawing hall, head me to drawing hall, head me back to the drawing hall, take me back, take me back to drawing hall{
 		>>RETURN
 	}
-@go left
-	*say
-	Heading to the store-room.
-	*then
-	->win
-@win
-	*say
-	Voila! The treasure is here! 
-@end
-	*say
-	Game over!
-	>>END
 
+@go left
+    *show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/dog.jpg'
+    title: dog pic
+	*say
+	Heading to the store-room. Oh no!there is a dog guarding the storeroo!his pet dog! Would you face the dog or run away?
+	*reprompt
+	 Say face to face the dog or say flee to run.
+	*then
+	hear face, fight, face the dog, face dog, fight with the dog{
+	set dog as 1
+	-> fight
+	}
+	hear flee, run, run away, run from the dog{
+	->flee
+	}
+@flee
+    *say
+    You ran away!
+    *then
+    ->help
+@help
+    *say
+    Would you like to play again?
+    *reprompt
+    Say restart to restart the game or say quit to end the game
+    *then
+    hear restart, yes, yeah, yup, hell yeah, why not, obviously, absolutely,all right, of course, sure,surely, yah, yep, okay,begin, restart the game, restart game, play ,play again{
+    ->intro
+    }
+    hear quit, no, nope,nah, nay, not at all, never, nae,absolutely not, definitely not,certainly not, not now, most certainly not, ofcourse not,no way,hell no, end,stop, end game, stop game, quit game{
+    >> END
+    }
+@win
+  *show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/treasure.png'
+    title:treasure pic
+	*say
+	You enter the storeroom and find a big casket. With utmost curiosity you open and find what you have been looking for.Voila! The treasure is here!Your efforts had paid off! Its all yours!You win!
+	*then
+	->help
+
+@end
+ *show
+    template:'default'
+    background:'https://s3.us-east-2.amazonaws.com/com.alexa.tuitorial/end.jpg'
+    title:end pic
+	*say
+   	Game over!
+   	*then
+   	-> help 
+    
 

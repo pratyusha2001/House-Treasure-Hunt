@@ -50,7 +50,8 @@
                                     "surely",
                                     "yah",
                                     "yep",
-                                    "okay"
+                                    "okay",
+                                    "begin"
                                 ],
                                 "saveToHistory": "true",
                                 "directions": [
@@ -159,6 +160,7 @@
                                 ],
                                 "utteranceIDs": [
                                     "flexcIntent",
+                                    "flexaIntent",
                                     "AMAZON.YesIntent"
                                 ]
                             }
@@ -195,7 +197,7 @@
             ],
             "id": "node3",
             "customProperties": {
-                "sourceLocation": 536,
+                "sourceLocation": 542,
                 "sourceID": "story.abc"
             }
         },
@@ -287,7 +289,7 @@
             ],
             "id": "node4",
             "customProperties": {
-                "sourceLocation": 972,
+                "sourceLocation": 978,
                 "sourceID": "story.abc"
             }
         },
@@ -308,7 +310,7 @@
             ],
             "id": "take right",
             "customProperties": {
-                "sourceLocation": 1668,
+                "sourceLocation": 1674,
                 "sourceID": "story.abc"
             }
         },
@@ -326,7 +328,7 @@
             ],
             "id": "bedroom",
             "customProperties": {
-                "sourceLocation": 1730,
+                "sourceLocation": 1736,
                 "sourceID": "story.abc"
             }
         },
@@ -406,7 +408,7 @@
             ],
             "id": "take left",
             "customProperties": {
-                "sourceLocation": 1784,
+                "sourceLocation": 1790,
                 "sourceID": "story.abc"
             }
         },
@@ -427,7 +429,7 @@
             ],
             "id": "go left",
             "customProperties": {
-                "sourceLocation": 2496,
+                "sourceLocation": 2502,
                 "sourceID": "story.abc"
             }
         },
@@ -445,7 +447,7 @@
             ],
             "id": "win",
             "customProperties": {
-                "sourceLocation": 2553,
+                "sourceLocation": 2559,
                 "sourceID": "story.abc"
             }
         },
@@ -463,7 +465,7 @@
             ],
             "id": "end",
             "customProperties": {
-                "sourceLocation": 2595,
+                "sourceLocation": 2601,
                 "sourceID": "story.abc"
             }
         }
@@ -480,7 +482,11 @@
                         "why not",
                         "obviously",
                         "surely",
-                        "yah"
+                        "yah",
+                        "begin",
+                        "lets start",
+                        "commence",
+                        "get going"
                     ]
                 },
                 {
@@ -500,11 +506,7 @@
                 {
                     "name": "flexcIntent",
                     "samples": [
-                        "start",
-                        "begin",
-                        "lets start",
-                        "commence",
-                        "get going"
+                        "start"
                     ]
                 },
                 {

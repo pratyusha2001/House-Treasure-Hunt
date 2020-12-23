@@ -9,7 +9,11 @@
                         "why not",
                         "obviously",
                         "surely",
-                        "yah"
+                        "yah",
+                        "begin",
+                        "lets start",
+                        "commence",
+                        "get going"
                     ]
                 },
                 {
@@ -29,11 +33,7 @@
                 {
                     "name": "flexcIntent",
                     "samples": [
-                        "start",
-                        "begin",
-                        "lets start",
-                        "commence",
-                        "get going"
+                        "start"
                     ]
                 },
                 {
